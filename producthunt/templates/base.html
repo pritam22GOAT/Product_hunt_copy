@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
-    <title>Carousel Template Bootstrap v5.0</title>
+    <title>Product Hunt</title>
+    <link rel="icon" href="{%  static 'Icon_image_P.png' %}" />
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -44,17 +45,18 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
        <img src="{%  static 'Icon_image_P.png' %}" height="30" width="30" /> 
-      <a class="navbar-brand" href="#">Product hunt</a>
+      <a class="navbar-brand">Product hunt</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
         </ul>
         {% if user.is_authenticated %}
+        <a href="{% url 'create' %}"style="background-color:DodgerBlue; text-decoration:none; color: beige;">Create Your Product</a> &nbsp;  &nbsp;
         <a href="javascript:{document.getElementById('logout').submit()}" onclick="" style="background-color:DodgerBlue; text-decoration:none; color: beige;">Logout</a>  &nbsp;
         <form id="logout" method="POST" action="{% url 'logout' %}" >
           {% csrf_token %}
